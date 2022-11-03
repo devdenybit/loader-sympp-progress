@@ -13,7 +13,6 @@ android {
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,5 +49,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation project(path:':vclibs')
 
-    implementation 'com.facebook.infer.annotation:infer-annotation:0.18.0'
+   // implementation 'com.facebook.infer.annotation:infer-annotation:0.18.0'
 }
