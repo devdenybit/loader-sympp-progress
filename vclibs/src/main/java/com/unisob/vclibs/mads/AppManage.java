@@ -97,7 +97,7 @@ public class AppManage {
     public static String Native_Ad_Small_Size = "";
     public static String Native_Ad_Shape_Normal_Round_Btn = "";
 
-    public static String Banner_Ads_Off = "";
+    public static String Banner_Ads_On = "";
     public static String Exit_Ad_Interstitial = "";
 
     public static int app_updateAppDialogStatus = 0;
@@ -161,7 +161,7 @@ public class AppManage {
 
     public InterstitialAd mInterstitialAd;
     public String google_i_pre = "", facebook_i_pre = "";
-    String admob_b, facebook_nb, facebook_b;
+    String admob_b, facebook_nb;
     String admob_n, facebook_n;
     ArrayList<String> banner_sequence = new ArrayList<>();
     ArrayList<String> native_sequence = new ArrayList<>();
@@ -169,18 +169,8 @@ public class AppManage {
     public com.facebook.ads.InterstitialAd fbinterstitialAd1;
     public Dialog dialog;
 
-    //  public static String App_url = "";
-    //  public static String WetherApi = "";
-    //  public static String Wether_link = "";
-    public static String False_Video_Show = "";
-    public static String True_Video_Show = "";
-    public static String Both_video_show = "";
-    public static String Qureka_Status = "";
-    public static String Qureka_image = "";
-    public static String Qureka_Link = "";
     public static String Privacy_policy_show_every_time = "";
     public static String app_onesingle_appid = "";
-    public static int maxvidcount;
 
     public static String app_CustomeADOnly = "";
     public static String app_CustomeADInterstitalDailog = "";
@@ -211,13 +201,6 @@ public class AppManage {
     public static void Server_Variables(JSONObject response) {
         try {
 
-            True_Video_Show = response.getJSONObject("EXTRA_DATA").getString("True_Video_Show");
-            False_Video_Show = response.getJSONObject("EXTRA_DATA").getString("False_Video_Show");
-            Both_video_show = response.getJSONObject("EXTRA_DATA").getString("Both_video_show");
-            maxvidcount = response.getJSONObject("EXTRA_DATA").getInt("maxvidcount");
-            Qureka_Status = response.getJSONObject("EXTRA_DATA").getString("Qureka_Status");
-            Qureka_image = response.getJSONObject("EXTRA_DATA").getString("Qureka_image");
-            Qureka_Link = response.getJSONObject("EXTRA_DATA").getString("Qureka_Link");
             Privacy_policy_show_every_time = response.getJSONObject("EXTRA_DATA").getString("Privacy_policy_show_every_time");
             app_onesingle_appid = response.getJSONObject("EXTRA_DATA").getString("app_onesingle");
             Native_Btn_Color = response.getJSONObject("EXTRA_DATA").getString("Native_Btn_Color");
@@ -230,7 +213,7 @@ public class AppManage {
             Native_Ad_Small_Size = response.getJSONObject("EXTRA_DATA").getString("Native_Ad_Small_Size");
             Native_Ad_Shape_Normal_Round_Btn = response.getJSONObject("EXTRA_DATA").getString("Native_Ad_Shape_Normal_Round_Btn");
 
-            Banner_Ads_Off = response.getJSONObject("EXTRA_DATA").getString("Banner_Ads_Off");
+            Banner_Ads_On = response.getJSONObject("EXTRA_DATA").getString("Banner_Ads_On");
             Exit_Ad_Interstitial = response.getJSONObject("EXTRA_DATA").getString("Exit_Ad_Interstitial");
 
             app_CustomeADOnly = response.getJSONObject("EXTRA_DATA").getString("app_CustomeADOnly");
@@ -702,13 +685,6 @@ public class AppManage {
         TextView banner_subhander = activity.findViewById(R.id.banner_subhander);
         TextView bner_install = activity.findViewById(R.id.bner_install);
 
-//        ImageView iv_hander1 = activity.findViewById(R.id.iv_hander1);
-//        ImageView iv_hander2 = activity.findViewById(R.id.iv_hander2);
-//        ImageView iv_hander3 = activity.findViewById(R.id.iv_hander3);
-//
-//        ImageView iv_buttom1 = activity.findViewById(R.id.iv_buttom1);
-//        ImageView iv_buttom2 = activity.findViewById(R.id.iv_buttom2);
-//        ImageView iv_buttom3 = activity.findViewById(R.id.iv_buttom3);
 
         if (app_CustomeADOnly.equalsIgnoreCase("true")) {
             iv_qurekanative.setVisibility(View.VISIBLE);
@@ -725,13 +701,7 @@ public class AppManage {
             banner_subhander.setText(app_CustomeAdBannerSubHanderText);
             bner_install.setText(app_CustomeAdBannerInstallText);
 
-//            Glide.with(activity).load(app_QurekaHander1Icon).into(iv_hander1);
-//            Glide.with(activity).load(app_QurekaHander2Icon).into(iv_hander2);
-//            Glide.with(activity).load(app_QurekaHander3Icon).into(iv_hander3);
-//
-//            Glide.with(activity).load(app_QurekaButtom1Icon).into(iv_buttom1);
-//            Glide.with(activity).load(app_QurekaButtom2Icon).into(iv_buttom2);
-//            Glide.with(activity).load(app_QurekaButtom3Icon).into(iv_buttom3);
+
 
             if (app_CustomeADText.equalsIgnoreCase("Qureka")) {
                 displayQurekaInterstitialAd(activity, app_CustomeAdQurekaLink);
@@ -799,47 +769,7 @@ public class AppManage {
             }
         });
 
-      /*  iv_hander1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaHanderLink);
-            }
-        });
 
-        iv_hander2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaHanderLink);
-            }
-        });
-
-        iv_hander3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaHanderLink);
-            }
-        });
-
-        iv_buttom1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaButtomLink);
-            }
-        });
-
-        iv_buttom2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaButtomLink);
-            }
-        });
-
-        iv_buttom3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openChromeCustomTabUrl(activity, app_QurekaButtomLink);
-            }
-        });*/
     }
 
     public void displayQurekaInterstitialAd(final Context context, String s) {
@@ -1684,7 +1614,7 @@ public class AppManage {
 
 
     public void showNativeBanner(ViewGroup banner_container, String admobB, String facebookNB) {
-        if (Banner_Ads_Off.equals("true")) {
+        if (Banner_Ads_On.equals("true")) {
             turnShowNativeBanner(banner_container, admobB, facebookNB);
         }
     }
@@ -1767,31 +1697,7 @@ public class AppManage {
         }
     }
 
-    /*public void showNativeStartAppBanner(final ViewGroup banner_container) {
-        if (STARTAPP_APPID.isEmpty() || startapp_AdStatus == 0) {
-            nextNativeBannerPlatform(banner_container);
-            return;
-        }
-        final StartAppNativeAd startAppNativeAd = new StartAppNativeAd(activity);
-        AdEventListener adListener = new AdEventListener() {
-            @Override
-            public void onReceiveAd(com.startapp.android.publish.adsCommon.Ad ad) {
-                ArrayList<NativeAdDetails> ads = startAppNativeAd.getNativeAds();    // get NativeAds list
-                new Inflate_ADS(activity).inflate_NB_STARTAPP(ads, banner_container);
 
-            }
-
-            @Override
-            public void onFailedToReceiveAd(com.startapp.android.publish.adsCommon.Ad ad) {
-                nextNativeBannerPlatform(banner_container);
-            }
-
-        };
-        NativeAdPreferences preferences = new NativeAdPreferences();
-        preferences.setAutoBitmapDownload(true);
-        preferences.setPrimaryImageSize(4);
-        startAppNativeAd.loadAd(preferences, adListener);
-    }*/
 
 
     public void showNativeFacebookBanner(final ViewGroup container) {
