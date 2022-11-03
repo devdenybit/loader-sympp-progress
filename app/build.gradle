@@ -50,5 +50,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation project(path:':vclibs')
 
-    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'com.facebook.infer.annotation:infer-annotation:0.18.0'
 }
