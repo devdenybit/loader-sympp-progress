@@ -1,0 +1,3 @@
+rootProject.name = "NormalLibs"
+include ':app'
+include ':vclibs'
