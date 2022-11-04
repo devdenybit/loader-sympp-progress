@@ -16,9 +16,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+
     /*buildFeatures {
         dataBinding true
     }*/
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
 
     buildTypes {
         release {
