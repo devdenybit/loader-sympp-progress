@@ -1,6 +1,5 @@
 package com.unisob.vclibs.mads;
 
-
 import static com.unisob.vclibs.mads.AppManage.mysharedpreferences;
 
 import android.app.Activity;
@@ -58,7 +57,6 @@ public class ADS_SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ads_splash);
-
     }
 
     public static void ADSinit(final Activity activity, final int cversion, final getDataListner myCallback1) {
